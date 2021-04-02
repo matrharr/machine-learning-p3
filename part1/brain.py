@@ -12,7 +12,7 @@ from data.load_data import load_bankrupt_data, load_brain_tumor_data
 from visualize.plot_graphs import plot_kmeans, plot_gm, density_est_gmm
 
 
-x_train, x_test, y_train, y_test, raw = load_brain_tumor_data()
+x_train, x_test, y_train, y_test, raw, y = load_brain_tumor_data()
 
 print(pd.DataFrame(x_train).head())
 
@@ -46,7 +46,7 @@ kmeans = KMeans(
     n_init=10,
     max_iter=300,
     tol=1e-4,
-    precompute_distances='auto',
+    # precompute_distances='auto',
     verbose=0,
     random_state=None,
     copy_x=True,
@@ -69,7 +69,8 @@ for col in og_data.columns:
 
 # slow
 # all pairs
-# sns.pairplot(og_data,hue='labels')
+sns_pair = sns.pairplot(og_data,hue='labels')
+sns_pair.savefig('figures/part1_kmeans_brain.png')
 
 # very slow
 # strip plots
@@ -120,13 +121,3 @@ gm = mixture.GaussianMixture(
     x_train
 )
 
-
-print('gm')
-
-# plot points
-# plot_kmeans(
-#     kmeans.cluster_centers_, 
-#     x_train, x_train, y_kmeans
-# )
-
-density_est_gmm(gm)

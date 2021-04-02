@@ -21,16 +21,18 @@ pca_brain = PCA(
     tol=0.0,
     iterated_power='auto',
     random_state=None
-).fit(x_train_brain)
+).fit(raw_brain)
 
-pca_brain_data = pca_brain.transform(x_train_brain)
+pca_brain_data = pca_brain.transform(raw_brain)
 
 # scatter
-# for color, i, target_name in zip(['r', 'b'], [0, 1], [0, 1]):
-#     plt.scatter(pca_brain_data[y_train_brain == i, 0], pca_brain_data[y_train_brain == i, 1], color=color, alpha=.8, lw=2,
-#                 label=target_name)
-# plt.legend(loc='best', shadow=False, scatterpoints=1)
-# plt.title('PCA')
+fig, ax = plt.subplots()
+for color, i, target_name in zip(['r', 'b'], [0, 1], [0, 1]):
+    plt.scatter(pca_brain_data[y_brain == i, 0], pca_brain_data[y_brain == i, 1], color=color, alpha=.8, lw=2,
+                label=target_name)
+plt.legend(loc='best', shadow=False, scatterpoints=1)
+plt.title('PCA')
+fig.savefig('figures/part2_pca_scatter_brain.png')
 
 # plot_pca2d(pca_brain)
 
@@ -45,12 +47,36 @@ pca_brain_data = pca_brain.transform(x_train_brain)
 with open('part2/pca-brain.npy', 'wb') as f:
     np.save(f, pca_brain_data)
 
-pca_bank = PCA(
-    n_components=None,
+pca_bankrupt = PCA(
+    n_components=2,
     copy=True,
     whiten=False,
     svd_solver='auto',
     tol=0.0,
     iterated_power='auto',
     random_state=None
-).fit_transform(x_train_bank)
+).fit(raw_bank)
+
+pca_bankrupt_data = pca_bankrupt.transform(raw_bank)
+
+# scatter
+fig, ax = plt.subplots()
+for color, i, target_name in zip(['r', 'b'], [0, 1], [0, 1]):
+    plt.scatter(pca_bankrupt_data[y_bank == i, 0], pca_bankrupt_data[y_bank == i, 1], color=color, alpha=.8, lw=2,
+                label=target_name)
+plt.legend(loc='best', shadow=False, scatterpoints=1)
+plt.title('PCA')
+fig.savefig('figures/part2_pca_scatter_bank.png')
+
+# plot_pca2d(pca_bankrupt)
+
+# bar graph, almost all variation in comp 1
+# per_var = np.round(pca_bankrupt.explained_variance_ratio_* 100, decimals=1)
+# labels = ['PC' + str(x) for x in range(1, len(per_var)+1)]
+# plt.bar(x=range(1,len(per_var)+1), height=per_var, tick_label=labels)
+# plt.ylabel('Percentage of Explained Variance')
+# plt.xlabel('Principal Component')
+# plt.title('Scree Plot')
+# plt.show()
+with open('part2/pca-bankrupt.npy', 'wb') as f:
+    np.save(f, pca_bankrupt_data)
