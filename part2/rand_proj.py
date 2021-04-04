@@ -6,10 +6,15 @@ from data.load_data import load_bankrupt_data, load_brain_tumor_data
 from visualize.plot_graphs import plot_pca2d
 
 from sklearn.random_projection import GaussianRandomProjection
+from sklearn import preprocessing
+
 
 x_train_brain, x_test_brain, y_train_brain, y_test_brain, raw_brain, y_brain = load_brain_tumor_data()
 x_train_bank, x_test_bank, y_train_bank, y_test_bank, raw_bank, y_bank = load_bankrupt_data()
 
+scaler = preprocessing.MinMaxScaler(feature_range=(0,1))
+raw_brain = scaler.fit_transform(raw_brain)
+raw_bank = scaler.fit_transform(raw_bank)
 
 gauss_brain = GaussianRandomProjection(
     n_components=2,

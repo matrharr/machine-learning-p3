@@ -25,16 +25,35 @@ with open('part2/rand-proj-brain.npy', 'rb') as f:
     file = np.load(f)
     features.append([file, 'rand-proj'])
 
+# with open('part2/lda-brain.npy', 'rb') as f:
+#     file = np.load(f)
+#     features.append([file, 'lda'])
+
 
 for feature in features:
+    
     dim_red_name = feature[1]
     data = feature[0]
+
+    # elbow method
+    # inertia = []
+    # K = range(1,10)
+    # for k in K:
+    #     kmeanModel = KMeans(n_clusters=k).fit(data)
+    #     kmeanModel.fit(data)
+    #     inertia.append(kmeanModel.inertia_)
+
+    # plt.plot(K, inertia, 'bx-')
+    # plt.xlabel('k')
+    # plt.title(f'{dim_red_name}')
+    # plt.ylabel('Inertia')
+    # plt.show()
 
     print('---------------Kmeans--------------')
     print('dim reduction: ', dim_red_name)
     
-    kmeans = KMeans(
-        n_clusters=4,
+    k = KMeans(
+        n_clusters=3,
         init='k-means++',
         n_init=10,
         max_iter=300,
@@ -45,11 +64,24 @@ for feature in features:
         copy_x=True,
         n_jobs=None,
         algorithm="auto"
-    ).fit(
+    )
+    
+    kmeans = k.fit(
         data, y=None, sample_weight=None
     )
 
     kmeans_data = kmeans.transform(data)
+    x_clustered = k.fit_predict(data)
+    print('HELLLOOOOOOOOO')
+    # Define our own color map
+    LABEL_COLOR_MAP = {0 : 'r',1 : 'g',2 : 'b', 3: 'y'}
+    label_color = [LABEL_COLOR_MAP[l] for l in x_clustered]
+
+    # Plot the scatter digram
+    # plt.figure(figsize = (7,7))
+    # plt.scatter(data[:,0],data[:,1], c= label_color, alpha=0.5) 
+    # # plt.show()
+    # plt.savefig(f'figures/part3_kmeans_brain_{dim_red_name}_scatter.png')
 
     labels = pd.DataFrame(kmeans.labels_) #This is where the label output of the KMeans we just ran lives. Make it a dataframe so we can concatenate back to the original data
     og_data = pd.concat((pd.DataFrame(raw_brain), labels),axis=1)
@@ -61,13 +93,13 @@ for feature in features:
 
     with open(f'part3/kmeans_brain_{dim_red_name}.npy', 'wb') as f:
         np.save(f, kmeans_data)
-    # plot 2d
-    sns.lmplot(x='Correlation',y='Skewness',data=og_data,hue='labels',fit_reg=False)
+    # # plot 2d
+    # sns.lmplot(x='Correlation',y='Skewness',data=og_data,hue='labels',fit_reg=False)
 
-    # slow
-    # all pairs
-    sns_pair = sns.pairplot(og_data,hue='labels')
-    sns_pair.savefig(f'figures/part3_kmeans_brain_{dim_red_name}.png')
+    # # slow
+    # # all pairs
+    # sns_pair = sns.pairplot(og_data,hue='labels')
+    # sns_pair.savefig(f'figures/part3_kmeans_brain_{dim_red_name}.png')
 
     # very slow
     # strip plots
@@ -100,7 +132,7 @@ for feature in features:
 
 
     gm = mixture.GaussianMixture(
-        n_components=2,
+        n_components=3,
         covariance_type='full',
         tol=1e-3,
         reg_covar=1e-6,
@@ -119,6 +151,21 @@ for feature in features:
     )
 
     gm_data = gm.predict_proba(data)
+
+    f = pd.DataFrame(data)
+    # Assign a label to each sample
+    labels = gm.predict(data)
+    f['labels']= labels
+    d0 = f[f['labels']== 0]
+    d1 = f[f['labels']== 1]
+    d2 = f[f['labels']== 2]
+    
+    # plot three clusters in same plot
+    plt.scatter(d0[0], d0[1], c ='r')
+    plt.scatter(d1[0], d1[1], c ='yellow')
+    plt.scatter(d2[0], d2[1], c ='g')
+    # plt.show()
+    plt.savefig(f'figures/part3_gm_brain_{dim_red_name}.png')
 
     with open(f'part3/gm_brain_{dim_red_name}.npy', 'wb') as f:
         np.save(f, gm_data)

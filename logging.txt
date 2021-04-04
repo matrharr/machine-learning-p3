@@ -1,0 +1,557 @@
+
+################ first run with bank data
+
+(env) ➜  project-3 git:(master) ✗ python3 run.py
+           Mean     Variance  Standard Deviation   Entropy  ...  Homogeneity  Dissimilarity  Correlation     Coarseness
+1941   7.189606   515.753329           22.710203  0.067093  ...     0.531043       6.397881     0.914203  7.458341e-155
+2253  10.907211  1239.769082           35.210355  0.241050  ...     0.664813       4.178269     0.976101  7.458341e-155
+2393   0.276703    26.875117            5.184122  0.007298  ...     0.218292      24.526042     0.574238  7.458341e-155
+1004  12.366898  1483.413291           38.515105  0.009412  ...     0.360154       6.874894     0.960801  7.458341e-155
+2498   4.532059   381.716593           19.537569  0.028782  ...     0.439580       5.268484     0.938950  7.458341e-155
+
+[5 rows x 13 columns]
+                0            1            2            3   ...           9            10           11           12
+count  3009.000000  3009.000000  3009.000000  3009.000000  ...  3009.000000  3009.000000  3009.000000  3009.000000
+mean      0.284720     0.244647     0.449281     0.185798  ...     0.529485     0.148503     0.922878     0.076622
+std       0.173928     0.161006     0.168667     0.179847  ...     0.182577     0.069584     0.060742     0.211508
+min       0.000000     0.000000     0.000000     0.000000  ...     0.000000     0.000000     0.000000     0.000000
+25%       0.149620     0.123559     0.330242     0.015468  ...     0.367554     0.100487     0.902468     0.000000
+50%       0.253289     0.214542     0.445364     0.167358  ...     0.574966     0.140150     0.936810     0.000000
+75%       0.399156     0.335435     0.565088     0.286270  ...     0.667300     0.187090     0.960019     0.000000
+max       1.000000     1.000000     1.000000     1.000000  ...     1.000000     1.000000     1.000000     1.000000
+
+[8 rows x 13 columns]
+/Users/mattharris/Desktop/OMSCS/cs-7641-machine-learning/project-3/env/lib/python3.9/site-packages/sklearn/cluster/_kmeans.py:792: FutureWarning: 'n_jobs' was deprecated in version 0.23 and will be removed in 1.0 (renaming of 0.25).
+  warnings.warn("'n_jobs' was deprecated in version 0.23 and will be"
+       Mean     Variance  Standard Deviation   Entropy  Skewness  ...  Homogeneity  Dissimilarity  Correlation     Coarseness  labels
+0  6.535339   619.587845           24.891522  0.109059  4.276477  ...     0.530941       4.473346     0.981939  7.458341e-155     0.0
+1  8.749969   805.957634           28.389393  0.266538  3.718116  ...     0.651352       3.220072     0.988834  7.458341e-155     0.0
+2  7.341095  1143.808219           33.820234  0.001467  5.061750  ...     0.268275       5.981800     0.978014  7.458341e-155     3.0
+3  5.958145   959.711985           30.979219  0.001477  5.677977  ...     0.243851       7.700919     0.964189  7.458341e-155     2.0
+4  7.315231   729.540579           27.010009  0.146761  4.283221  ...     0.501140       6.834689     0.972789  7.458341e-155     3.0
+
+[5 rows x 14 columns]
+Mean
+Variance
+Standard Deviation
+Entropy
+Skewness
+Kurtosis
+Contrast
+Energy
+ASM
+Homogeneity
+Dissimilarity
+Correlation
+Coarseness
+labels
+2021-04-01 09:27:25.990 Python[36589:10769690] ApplePersistenceIgnoreState: Existing state will not be touched. New state will be written to (null)
+/Users/mattharris/Desktop/OMSCS/cs-7641-machine-learning/project-3/env/lib/python3.9/site-packages/seaborn/distributions.py:306: UserWarning: Dataset has 0 variance; skipping density estimate.
+  warnings.warn(msg, UserWarning)
+/Users/mattharris/Desktop/OMSCS/cs-7641-machine-learning/project-3/env/lib/python3.9/site-packages/seaborn/distributions.py:306: UserWarning: Dataset has 0 variance; skipping density estimate.
+  warnings.warn(msg, UserWarning)
+/Users/mattharris/Desktop/OMSCS/cs-7641-machine-learning/project-3/env/lib/python3.9/site-packages/seaborn/distributions.py:306: UserWarning: Dataset has 0 variance; skipping density estimate.
+  warnings.warn(msg, UserWarning)
+/Users/mattharris/Desktop/OMSCS/cs-7641-machine-learning/project-3/env/lib/python3.9/site-packages/seaborn/distributions.py:306: UserWarning: Dataset has 0 variance; skipping density estimate.
+  warnings.warn(msg, UserWarning)
+----------------Brain data-------------------
+kmeans cluster centers: [[0.24545104 0.16118938 0.36453674 0.34210275 0.0487373  0.00910711
+  0.02953631 0.52772972 0.31293505 0.68589554 0.10913182 0.92939236
+  0.02193239]
+ [0.27387601 0.27297471 0.47839865 0.08750059 0.08864708 0.02454442
+  0.04113639 0.18408734 0.07727695 0.42134514 0.17753284 0.92363928
+  0.7312128 ]
+ [0.48276721 0.43369561 0.63859524 0.09056714 0.03303244 0.0052231
+  0.04098033 0.21447741 0.07833042 0.4764624  0.16083292 0.93506532
+  0.02176798]
+ [0.14441928 0.18743439 0.39401601 0.01986395 0.15159084 0.04914203
+  0.04640956 0.07630007 0.01641268 0.31964533 0.20184644 0.8963197
+  0.02316584]]
+kmeans number of clusters: 4
+kmeans labels: [0 0 3 ... 0 0 0]
+kmeans num of iterations: 12
+/Users/mattharris/Desktop/OMSCS/cs-7641-machine-learning/project-3/env/lib/python3.9/site-packages/sklearn/cluster/_kmeans.py:792: FutureWarning: 'n_jobs' was deprecated in version 0.23 and will be removed in 1.0 (renaming of 0.25).
+  warnings.warn("'n_jobs' was deprecated in version 0.23 and will be"
+    ROA(C) before interest and depreciation before interest   ROA(A) before interest and % after tax  ...   Equity to Liability  labels
+0                                           0.370594                                        0.424389  ...              0.016469     2.0
+1                                           0.464291                                        0.538214  ...              0.020794     1.0
+2                                           0.426071                                        0.499019  ...              0.016474     2.0
+3                                           0.399844                                        0.451265  ...              0.023982     0.0
+4                                           0.465022                                        0.538432  ...              0.035490     3.0
+
+[5 rows x 96 columns]
+ ROA(C) before interest and depreciation before interest
+ ROA(A) before interest and % after tax
+ ROA(B) before interest and depreciation after tax
+ Operating Gross Margin
+ Realized Sales Gross Margin
+ Operating Profit Rate
+ Pre-tax net Interest Rate
+ After-tax net Interest Rate
+ Non-industry income and expenditure/revenue
+ Continuous interest rate (after tax)
+ Operating Expense Rate
+ Research and development expense rate
+ Cash flow rate
+ Interest-bearing debt interest rate
+ Tax rate (A)
+ Net Value Per Share (B)
+ Net Value Per Share (A)
+ Net Value Per Share (C)
+ Persistent EPS in the Last Four Seasons
+ Cash Flow Per Share
+ Revenue Per Share (Yuan ¥)
+ Operating Profit Per Share (Yuan ¥)
+ Per Share Net profit before tax (Yuan ¥)
+ Realized Sales Gross Profit Growth Rate
+ Operating Profit Growth Rate
+ After-tax Net Profit Growth Rate
+ Regular Net Profit Growth Rate
+ Continuous Net Profit Growth Rate
+ Total Asset Growth Rate
+ Net Value Growth Rate
+ Total Asset Return Growth Rate Ratio
+ Cash Reinvestment %
+ Current Ratio
+ Quick Ratio
+ Interest Expense Ratio
+ Total debt/Total net worth
+ Debt ratio %
+ Net worth/Assets
+ Long-term fund suitability ratio (A)
+ Borrowing dependency
+ Contingent liabilities/Net worth
+ Operating profit/Paid-in capital
+ Net profit before tax/Paid-in capital
+ Inventory and accounts receivable/Net value
+ Total Asset Turnover
+ Accounts Receivable Turnover
+ Average Collection Days
+ Inventory Turnover Rate (times)
+ Fixed Assets Turnover Frequency
+ Net Worth Turnover Rate (times)
+ Revenue per person
+ Operating profit per person
+ Allocation rate per person
+ Working Capital to Total Assets
+ Quick Assets/Total Assets
+ Current Assets/Total Assets
+ Cash/Total Assets
+ Quick Assets/Current Liability
+ Cash/Current Liability
+ Current Liability to Assets
+ Operating Funds to Liability
+ Inventory/Working Capital
+ Inventory/Current Liability
+ Current Liabilities/Liability
+ Working Capital/Equity
+ Current Liabilities/Equity
+ Long-term Liability to Current Assets
+ Retained Earnings to Total Assets
+ Total income/Total expense
+ Total expense/Assets
+ Current Asset Turnover Rate
+ Quick Asset Turnover Rate
+ Working capitcal Turnover Rate
+ Cash Turnover Rate
+ Cash Flow to Sales
+ Fixed Assets to Assets
+ Current Liability to Liability
+ Current Liability to Equity
+ Equity to Long-term Liability
+ Cash Flow to Total Assets
+ Cash Flow to Liability
+ CFO to Assets
+ Cash Flow to Equity
+ Current Liability to Current Assets
+ Liability-Assets Flag
+ Net Income to Total Assets
+ Total assets to GNP price
+ No-credit Interval
+ Gross Profit to Sales
+ Net Income to Stockholder's Equity
+ Liability to Equity
+ Degree of Financial Leverage (DFL)
+ Interest Coverage Ratio (Interest expense to EBIT)
+ Net Income Flag
+ Equity to Liability
+labels
+/Users/mattharris/Desktop/OMSCS/cs-7641-machine-learning/project-3/env/lib/python3.9/site-packages/seaborn/distributions.py:306: UserWarning: Dataset has 0 variance; skipping density estimate.
+  warnings.warn(msg, UserWarning)
+/Users/mattharris/Desktop/OMSCS/cs-7641-machine-learning/project-3/env/lib/python3.9/site-packages/seaborn/distributions.py:306: UserWarning: Dataset has 0 variance; skipping density estimate.
+  warnings.warn(msg, UserWarning)
+/Users/mattharris/Desktop/OMSCS/cs-7641-machine-learning/project-3/env/lib/python3.9/site-packages/seaborn/distributions.py:306: UserWarning: Dataset has 0 variance; skipping density estimate.
+  warnings.warn(msg, UserWarning)
+/Users/mattharris/Desktop/OMSCS/cs-7641-machine-learning/project-3/env/lib/python3.9/site-packages/seaborn/distributions.py:306: UserWarning: Dataset has 0 variance; skipping density estimate.
+  warnings.warn(msg, UserWarning)
+/Users/mattharris/Desktop/OMSCS/cs-7641-machine-learning/project-3/env/lib/python3.9/site-packages/seaborn/distributions.py:306: UserWarning: Dataset has 0 variance; skipping density estimate.
+  warnings.warn(msg, UserWarning)
+----------------Bankrupt data-------------------
+kmeans cluster centers: [[5.01768403e-01 5.78975765e-01 5.71888168e-01 6.10693455e-01
+  6.10682659e-01 9.98778147e-01 7.97224640e-01 8.09023499e-01
+  3.03635728e-01 7.81380901e-01 1.99504549e-01 2.00910022e-01
+  6.29807529e-01 2.03756780e-02 1.25647926e-01 1.95987228e-01
+  1.95983450e-01 1.96007426e-01 2.35169815e-01 3.24808550e-01
+  9.85221688e-04 1.01062632e-01 1.90652972e-01 2.23315034e-02
+  8.47722633e-01 8.22830258e-01 8.22802076e-01 1.35088723e-01
+  5.25702131e-01 1.03865999e-13 2.64233748e-01 3.80457513e-01
+  1.74599270e-02 7.71499262e-04 6.30817618e-01 6.31181430e-04
+  1.05360175e-01 8.94639825e-01 1.05358779e-02 3.73440372e-01
+  7.17715268e-02 1.00905508e-01 1.88428110e-01 4.02602484e-01
+  1.43563194e-01 2.38066578e-03 7.43979061e-04 2.36370952e-02
+  9.18448991e-03 3.74913396e-02 3.94200504e-04 4.03558164e-01
+  1.54131085e-03 8.34826440e-01 5.05914732e-01 6.06505839e-01
+  1.74207649e-01 9.47242610e-04 2.25273744e-03 9.34990310e-02
+  3.73737050e-01 2.77271658e-01 8.73693786e-03 8.39037119e-01
+  4.55169158e-01 5.27782386e-01 7.23279381e-03 8.74710722e-01
+  2.95138229e-03 6.56488637e-02 5.80967488e-03 1.06881281e-02
+  5.93829724e-01 2.05408017e-01 6.71270806e-01 4.92610857e-04
+  8.39037119e-01 5.27782386e-01 1.13436010e-01 6.23813304e-01
+  5.14012704e-01 5.65725791e-01 2.72045029e-01 4.21536207e-02
+  9.85221675e-04 6.84244072e-01 1.99101061e-03 6.24084763e-01
+  6.10691747e-01 8.41068674e-01 3.75309834e-01 2.72378041e-02
+  6.96260648e-01 0.00000000e+00 5.41534499e-02]
+ [4.88633970e-01 5.64587239e-01 5.58736299e-01 6.09845493e-01
+  6.09802322e-01 9.98991279e-01 7.97410531e-01 8.09324312e-01
+  3.03514675e-01 7.81578070e-01 1.05854776e-01 2.04236937e-01
+  6.27923521e-01 1.85610147e-02 1.12300748e-01 1.87334913e-01
+  1.87328435e-01 1.87383530e-01 2.26388592e-01 3.22360669e-01
+  1.00190987e-11 9.56070834e-02 1.82163756e-01 2.22699482e-02
+  8.48024970e-01 8.23134504e-01 8.23137178e-01 1.34700334e-01
+  5.68545260e-01 5.10537250e-14 2.64693198e-01 3.78893079e-01
+  1.62764157e-02 1.26132221e-12 6.30612354e-01 1.12883574e-12
+  1.06754559e-01 8.93245441e-01 7.16598326e-03 3.73958446e-01
+  6.91654454e-02 9.54465813e-02 1.80552080e-01 4.02736813e-01
+  1.26049839e-01 8.34313511e-04 9.31543254e-04 7.08519199e-01
+  1.37957537e-02 3.35256812e-02 2.30097354e-12 3.97300584e-01
+  9.18847680e-13 8.30055326e-01 4.06827107e-01 5.72342508e-01
+  1.32871812e-01 1.36066896e-12 2.40622447e-05 8.83725746e-02
+  3.69398468e-01 2.77389209e-01 1.39605968e-03 7.95137989e-01
+  4.54782865e-01 5.26782863e-01 5.83440352e-03 8.67534095e-01
+  2.35191458e-03 7.28834363e-02 1.50137783e-02 1.71508155e-01
+  5.93992389e-01 2.55895666e-01 6.71575672e-01 2.76686608e-11
+  7.95137989e-01 5.26782863e-01 1.15030153e-01 6.13171591e-01
+  5.09975619e-01 5.57222277e-01 2.70346326e-01 4.28218020e-02
+  8.09061489e-04 6.70800492e-01 2.84077802e-03 6.24164362e-01
+  6.09843844e-01 8.40581836e-01 3.75166882e-01 2.74726177e-02
+  6.96492957e-01 0.00000000e+00 4.99531796e-02]
+ [4.80533163e-01 5.45457911e-01 5.50566441e-01 6.05786855e-01
+  6.05775829e-01 9.97837442e-01 7.96312859e-01 8.08328094e-01
+  3.04010474e-01 7.80637995e-01 1.42090629e-01 1.96507096e-01
+  6.30335531e-01 8.65239219e-03 6.94111322e-02 1.85365731e-01
+  1.85274599e-01 1.85310219e-01 2.18315756e-01 3.23159157e-01
+  4.99002001e-04 8.67443478e-02 1.73486423e-01 2.22718153e-02
+  8.47875789e-01 8.22742646e-01 8.22765253e-01 1.34667792e-01
+  5.61325575e-01 9.98003992e-04 2.64001249e-01 3.79730656e-01
+  1.41225766e-02 9.48775097e-04 6.31559169e-01 9.87823427e-04
+  1.15196188e-01 8.84803812e-01 5.82418692e-03 3.76143506e-01
+  7.08855661e-02 8.67246054e-02 1.72540982e-01 3.98039902e-01
+  6.63021783e-02 1.47548845e-03 2.44936643e-04 1.82927349e-01
+  4.87623172e-01 2.19562488e-02 9.98003994e-04 3.93017362e-01
+  3.87238462e-12 7.73561299e-01 2.18517153e-01 2.89286468e-01
+  7.21367310e-02 1.29528810e-12 8.02984704e-03 6.49154394e-02
+  3.67503998e-01 2.78021374e-01 9.77167763e-03 5.34536179e-01
+  4.46465665e-01 5.25194585e-01 7.67037356e-04 8.58796580e-01
+  2.34815601e-03 4.47435788e-02 4.95867944e-02 1.26675948e-01
+  5.94355681e-01 2.21100719e-01 6.71865231e-01 5.62533059e-11
+  5.34536179e-01 5.25194585e-01 1.20275272e-01 6.06113642e-01
+  5.06405638e-01 5.59452456e-01 2.69226697e-01 6.95268560e-02
+  9.98003992e-04 6.52723939e-01 9.98003994e-04 6.24200736e-01
+  6.05785238e-01 8.39796549e-01 3.75866959e-01 2.82567258e-02
+  6.95594830e-01 0.00000000e+00 4.57768953e-02]
+ [4.93217408e-01 5.68666598e-01 5.62306806e-01 6.03403314e-01
+  6.03393503e-01 9.99012104e-01 7.97442606e-01 8.09353388e-01
+  3.03527156e-01 7.81616320e-01 3.47096797e-01 1.71907741e-01
+  6.27127909e-01 1.46468901e-02 1.36445685e-01 1.89654708e-01
+  1.89615657e-01 1.89655702e-01 2.29360348e-01 3.23017405e-01
+  2.16689766e-11 9.76546081e-02 1.85039416e-01 2.30217687e-02
+  8.48276680e-01 8.23651960e-01 8.23629241e-01 1.34726659e-01
+  5.60515140e-01 3.99191043e-14 2.64143806e-01 3.79709498e-01
+  1.01637729e-02 1.62541887e-03 6.31225065e-01 1.55487407e-12
+  1.29851643e-01 8.70148357e-01 1.00005957e-02 3.75723478e-01
+  7.31971475e-02 9.75549377e-02 1.83598859e-01 4.05001604e-01
+  2.17205635e-01 2.60631143e-13 2.10467803e-03 5.05195170e-02
+  2.42085388e-02 5.89145854e-02 7.28769801e-12 4.05729650e-01
+  3.19905912e-03 7.98088561e-01 3.73886411e-01 5.20518001e-01
+  8.19762895e-02 8.28533639e-13 5.32102964e-03 1.08319276e-01
+  3.66543178e-01 2.77038164e-01 4.68530167e-03 7.83608260e-01
+  4.50967998e-01 5.30347157e-01 3.98149263e-03 8.70783620e-01
+  2.39993688e-03 6.32260448e-02 4.75934110e-01 6.75142460e-01
+  5.93941795e-01 3.04855243e-01 6.71571261e-01 2.72062234e-11
+  7.83608260e-01 5.30347157e-01 1.15993216e-01 6.07118460e-01
+  5.07683099e-01 5.58809200e-01 2.69312330e-01 5.82618937e-02
+  1.68491997e-03 6.74770704e-01 2.73413439e-03 6.23453520e-01
+  6.03401637e-01 8.40072147e-01 3.78066781e-01 2.73403935e-02
+  6.96406149e-01 0.00000000e+00 3.56335512e-02]]
+kmeans number of clusters: 4
+kmeans labels: [2 1 2 ... 0 3 0]
+kmeans num of iterations: 25
+part1 time taken:  -75205.6002190113
+part2 time taken:  -141.49334621429443
+---------------Kmeans--------------
+dim reduction:  pca
+/Users/mattharris/Desktop/OMSCS/cs-7641-machine-learning/project-3/env/lib/python3.9/site-packages/sklearn/cluster/_kmeans.py:786: FutureWarning: 'precompute_distances' was deprecated in version 0.23 and will be removed in 1.0 (renaming of 0.25). It has no effect
+  warnings.warn("'precompute_distances' was deprecated in version "
+/Users/mattharris/Desktop/OMSCS/cs-7641-machine-learning/project-3/env/lib/python3.9/site-packages/sklearn/cluster/_kmeans.py:792: FutureWarning: 'n_jobs' was deprecated in version 0.23 and will be removed in 1.0 (renaming of 0.25).
+  warnings.warn("'n_jobs' was deprecated in version 0.23 and will be"
+       Mean     Variance  Standard Deviation   Entropy  Skewness  ...  Homogeneity  Dissimilarity  Correlation     Coarseness  labels
+0  6.535339   619.587845           24.891522  0.109059  4.276477  ...     0.530941       4.473346     0.981939  7.458341e-155       2
+1  8.749969   805.957634           28.389393  0.266538  3.718116  ...     0.651352       3.220072     0.988834  7.458341e-155       2
+2  7.341095  1143.808219           33.820234  0.001467  5.061750  ...     0.268275       5.981800     0.978014  7.458341e-155       1
+3  5.958145   959.711985           30.979219  0.001477  5.677977  ...     0.243851       7.700919     0.964189  7.458341e-155       1
+4  7.315231   729.540579           27.010009  0.146761  4.283221  ...     0.501140       6.834689     0.972789  7.458341e-155       2
+
+[5 rows x 14 columns]
+Mean
+Variance
+Standard Deviation
+Entropy
+Skewness
+Kurtosis
+Contrast
+Energy
+ASM
+Homogeneity
+Dissimilarity
+Correlation
+Coarseness
+labels
+/Users/mattharris/Desktop/OMSCS/cs-7641-machine-learning/project-3/env/lib/python3.9/site-packages/seaborn/distributions.py:306: UserWarning: Dataset has 0 variance; skipping density estimate.
+  warnings.warn(msg, UserWarning)
+/Users/mattharris/Desktop/OMSCS/cs-7641-machine-learning/project-3/env/lib/python3.9/site-packages/seaborn/distributions.py:306: UserWarning: Dataset has 0 variance; skipping density estimate.
+  warnings.warn(msg, UserWarning)
+/Users/mattharris/Desktop/OMSCS/cs-7641-machine-learning/project-3/env/lib/python3.9/site-packages/seaborn/distributions.py:306: UserWarning: Dataset has 0 variance; skipping density estimate.
+  warnings.warn(msg, UserWarning)
+/Users/mattharris/Desktop/OMSCS/cs-7641-machine-learning/project-3/env/lib/python3.9/site-packages/seaborn/distributions.py:306: UserWarning: Dataset has 0 variance; skipping density estimate.
+  warnings.warn(msg, UserWarning)
+---------------Kmeans--------------
+dim reduction:  ica
+/Users/mattharris/Desktop/OMSCS/cs-7641-machine-learning/project-3/env/lib/python3.9/site-packages/sklearn/cluster/_kmeans.py:786: FutureWarning: 'precompute_distances' was deprecated in version 0.23 and will be removed in 1.0 (renaming of 0.25). It has no effect
+  warnings.warn("'precompute_distances' was deprecated in version "
+/Users/mattharris/Desktop/OMSCS/cs-7641-machine-learning/project-3/env/lib/python3.9/site-packages/sklearn/cluster/_kmeans.py:792: FutureWarning: 'n_jobs' was deprecated in version 0.23 and will be removed in 1.0 (renaming of 0.25).
+  warnings.warn("'n_jobs' was deprecated in version 0.23 and will be"
+       Mean     Variance  Standard Deviation   Entropy  Skewness  ...  Homogeneity  Dissimilarity  Correlation     Coarseness  labels
+0  6.535339   619.587845           24.891522  0.109059  4.276477  ...     0.530941       4.473346     0.981939  7.458341e-155       0
+1  8.749969   805.957634           28.389393  0.266538  3.718116  ...     0.651352       3.220072     0.988834  7.458341e-155       0
+2  7.341095  1143.808219           33.820234  0.001467  5.061750  ...     0.268275       5.981800     0.978014  7.458341e-155       1
+3  5.958145   959.711985           30.979219  0.001477  5.677977  ...     0.243851       7.700919     0.964189  7.458341e-155       1
+4  7.315231   729.540579           27.010009  0.146761  4.283221  ...     0.501140       6.834689     0.972789  7.458341e-155       0
+
+[5 rows x 14 columns]
+Mean
+Variance
+Standard Deviation
+Entropy
+Skewness
+Kurtosis
+Contrast
+Energy
+ASM
+Homogeneity
+Dissimilarity
+Correlation
+Coarseness
+labels
+/Users/mattharris/Desktop/OMSCS/cs-7641-machine-learning/project-3/env/lib/python3.9/site-packages/seaborn/distributions.py:306: UserWarning: Dataset has 0 variance; skipping density estimate.
+  warnings.warn(msg, UserWarning)
+/Users/mattharris/Desktop/OMSCS/cs-7641-machine-learning/project-3/env/lib/python3.9/site-packages/seaborn/distributions.py:306: UserWarning: Dataset has 0 variance; skipping density estimate.
+  warnings.warn(msg, UserWarning)
+/Users/mattharris/Desktop/OMSCS/cs-7641-machine-learning/project-3/env/lib/python3.9/site-packages/seaborn/distributions.py:306: UserWarning: Dataset has 0 variance; skipping density estimate.
+  warnings.warn(msg, UserWarning)
+/Users/mattharris/Desktop/OMSCS/cs-7641-machine-learning/project-3/env/lib/python3.9/site-packages/seaborn/distributions.py:306: UserWarning: Dataset has 0 variance; skipping density estimate.
+  warnings.warn(msg, UserWarning)
+---------------Kmeans--------------
+dim reduction:  rand-proj
+/Users/mattharris/Desktop/OMSCS/cs-7641-machine-learning/project-3/env/lib/python3.9/site-packages/sklearn/cluster/_kmeans.py:786: FutureWarning: 'precompute_distances' was deprecated in version 0.23 and will be removed in 1.0 (renaming of 0.25). It has no effect
+  warnings.warn("'precompute_distances' was deprecated in version "
+/Users/mattharris/Desktop/OMSCS/cs-7641-machine-learning/project-3/env/lib/python3.9/site-packages/sklearn/cluster/_kmeans.py:792: FutureWarning: 'n_jobs' was deprecated in version 0.23 and will be removed in 1.0 (renaming of 0.25).
+  warnings.warn("'n_jobs' was deprecated in version 0.23 and will be"
+       Mean     Variance  Standard Deviation   Entropy  Skewness  ...  Homogeneity  Dissimilarity  Correlation     Coarseness  labels
+0  6.535339   619.587845           24.891522  0.109059  4.276477  ...     0.530941       4.473346     0.981939  7.458341e-155       0
+1  8.749969   805.957634           28.389393  0.266538  3.718116  ...     0.651352       3.220072     0.988834  7.458341e-155       1
+2  7.341095  1143.808219           33.820234  0.001467  5.061750  ...     0.268275       5.981800     0.978014  7.458341e-155       1
+3  5.958145   959.711985           30.979219  0.001477  5.677977  ...     0.243851       7.700919     0.964189  7.458341e-155       0
+4  7.315231   729.540579           27.010009  0.146761  4.283221  ...     0.501140       6.834689     0.972789  7.458341e-155       0
+
+[5 rows x 14 columns]
+Mean
+Variance
+Standard Deviation
+Entropy
+Skewness
+Kurtosis
+Contrast
+Energy
+ASM
+Homogeneity
+Dissimilarity
+Correlation
+Coarseness
+labels
+/Users/mattharris/Desktop/OMSCS/cs-7641-machine-learning/project-3/env/lib/python3.9/site-packages/seaborn/distributions.py:306: UserWarning: Dataset has 0 variance; skipping density estimate.
+  warnings.warn(msg, UserWarning)
+/Users/mattharris/Desktop/OMSCS/cs-7641-machine-learning/project-3/env/lib/python3.9/site-packages/seaborn/distributions.py:306: UserWarning: Dataset has 0 variance; skipping density estimate.
+  warnings.warn(msg, UserWarning)
+/Users/mattharris/Desktop/OMSCS/cs-7641-machine-learning/project-3/env/lib/python3.9/site-packages/seaborn/distributions.py:306: UserWarning: Dataset has 0 variance; skipping density estimate.
+  warnings.warn(msg, UserWarning)
+/Users/mattharris/Desktop/OMSCS/cs-7641-machine-learning/project-3/env/lib/python3.9/site-packages/seaborn/distributions.py:306: UserWarning: Dataset has 0 variance; skipping density estimate.
+  warnings.warn(msg, UserWarning)
+---------------Exp Maximization--------------
+dim reduction:  pca
+---------------Exp Maximization--------------
+dim reduction:  ica
+---------------Exp Maximization--------------
+dim reduction:  rand-proj
+Traceback (most recent call last):
+  File "/Users/mattharris/Desktop/OMSCS/cs-7641-machine-learning/project-3/run.py", line 15, in <module>
+    from part3 import run
+  File "/Users/mattharris/Desktop/OMSCS/cs-7641-machine-learning/project-3/part3/run.py", line 2, in <module>
+    from part3 import bankrupt
+  File "/Users/mattharris/Desktop/OMSCS/cs-7641-machine-learning/project-3/part3/bankrupt.py", line 17, in <module>
+    with open('part2/pca-bank.npy', 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'part2/pca-bank.npy'
+(env) ➜  project-3 git:(master) ✗ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   .gitignore
+	new file:   figures/part1_kmeans_brain.png
+	new file:   figures/part2_ica_scatter.png
+	new file:   figures/part2_pca_scatter.png
+	new file:   figures/part2_rp_scatter.png
+	new file:   figures/part3_kmeans_brain_ica.png
+	new file:   figures/part3_kmeans_brain_pca.png
+	new file:   figures/part3_kmeans_brain_rand-proj.png
+	new file:   figures/part4_nn_brain_ica_learning_curve.png
+	new file:   figures/part4_nn_brain_pca_learning_curve.png
+	new file:   figures/part4_nn_brain_rand-proj_learning_curve.png
+	new file:   figures/part5_nn_brain_gm_ica_learning_curve.png
+	new file:   figures/part5_nn_brain_gm_pca_learning_curve.png
+	new file:   figures/part5_nn_brain_gm_rp_learning_curve.png
+	new file:   figures/part5_nn_brain_kmeans_ica_learning_curve.png
+	new file:   figures/part5_nn_brain_kmeans_pca_learning_curve.png
+	new file:   figures/part5_nn_brain_kmeans_rp_learning_curve.png
+	new file:   metrics.py
+	modified:   part1/bankrupt.py
+	modified:   part1/brain.py
+	modified:   part2/ica-brain.npy
+	modified:   part2/ica.py
+	modified:   part2/pca-brain.npy
+	modified:   part2/pca.py
+	modified:   part2/rand-proj-brain.npy
+	modified:   part2/rand_proj.py
+	modified:   part3/brain.py
+	modified:   part3/run.py
+	new file:   part4/nn_bank.py
+	new file:   part4/nn_brain.py
+	new file:   part4/run.py
+	new file:   part5/nn_bank.py
+	new file:   part5/nn_brain.py
+	new file:   part5/run.py
+	deleted:    rand-proj-brain.npy
+	modified:   run.py
+	modified:   visualize/plot_graphs.py
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   figures/part1_kmeans_brain.png
+	modified:   figures/part3_kmeans_brain_ica.png
+	modified:   figures/part3_kmeans_brain_pca.png
+	modified:   figures/part3_kmeans_brain_rand-proj.png
+	modified:   part1/bankrupt.py
+	modified:   part1/brain.py
+	modified:   part2/ica-brain.npy
+	modified:   part2/ica.py
+	modified:   part2/pca-brain.npy
+	modified:   part2/pca.py
+	modified:   part2/rand-proj-brain.npy
+	modified:   part2/rand_proj.py
+	modified:   part3/bankrupt.py
+	modified:   part4/nn_bank.py
+	modified:   part4/nn_brain.py
+	modified:   part5/nn_bank.py
+	modified:   part5/nn_brain.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	figures/part1_kmeans_bankrupt.png
+	figures/part2_ica_scatter_bank.png
+	figures/part2_ica_scatter_brain.png
+	figures/part2_pca_scatter_bank.png
+	figures/part2_pca_scatter_brain.png
+	figures/part2_rp_scatter_bank.png
+	figures/part2_rp_scatter_brain.png
+
+(env) ➜  project-3 git:(master) ✗ git add .
+(env) ➜  project-3 git:(master) ✗ git commit -m 'add some bank data figures'
+[master 9dfdd43] add some bank data figures
+ Committer: Matt Harris <mattharris@Matts-MBP.attlocal.net>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 45 files changed, 1193 insertions(+), 96 deletions(-)
+ create mode 100644 figures/part1_kmeans_bankrupt.png
+ create mode 100644 figures/part1_kmeans_brain.png
+ create mode 100644 figures/part2_ica_scatter.png
+ create mode 100644 figures/part2_ica_scatter_bank.png
+ create mode 100644 figures/part2_ica_scatter_brain.png
+ create mode 100644 figures/part2_pca_scatter.png
+ create mode 100644 figures/part2_pca_scatter_bank.png
+ create mode 100644 figures/part2_pca_scatter_brain.png
+ create mode 100644 figures/part2_rp_scatter.png
+ create mode 100644 figures/part2_rp_scatter_bank.png
+ create mode 100644 figures/part2_rp_scatter_brain.png
+ create mode 100644 figures/part3_kmeans_brain_ica.png
+ create mode 100644 figures/part3_kmeans_brain_pca.png
+ create mode 100644 figures/part3_kmeans_brain_rand-proj.png
+ create mode 100644 figures/part4_nn_brain_ica_learning_curve.png
+ create mode 100644 figures/part4_nn_brain_pca_learning_curve.png
+ create mode 100644 figures/part4_nn_brain_rand-proj_learning_curve.png
+ create mode 100644 figures/part5_nn_brain_gm_ica_learning_curve.png
+ create mode 100644 figures/part5_nn_brain_gm_pca_learning_curve.png
+ create mode 100644 figures/part5_nn_brain_gm_rp_learning_curve.png
+ create mode 100644 figures/part5_nn_brain_kmeans_ica_learning_curve.png
+ create mode 100644 figures/part5_nn_brain_kmeans_pca_learning_curve.png
+ create mode 100644 figures/part5_nn_brain_kmeans_rp_learning_curve.png
+ create mode 100644 metrics.py
+ rewrite part2/ica-brain.npy (99%)
+ rewrite part2/pca-brain.npy (98%)
+ rewrite part2/rand-proj-brain.npy (99%)
+ create mode 100644 part4/nn_bank.py
+ create mode 100644 part4/nn_brain.py
+ create mode 100644 part4/run.py
+ create mode 100644 part5/nn_bank.py
+ create mode 100644 part5/nn_brain.py
+ create mode 100644 part5/run.py
+ delete mode 100644 rand-proj-brain.npy
+ rewrite run.py (83%)
+(env) ➜  project-3 git:(master) git push
+Warning: Permanently added the RSA host key for IP address '140.82.113.4' to the list of known hosts.
+Enter passphrase for key '/Users/mattharris/.ssh/id_rsa':
+Enumerating objects: 74, done.
+Counting objects: 100% (72/72), done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (50/50), done.
+Writing objects: 100% (52/52), 96.38 MiB | 4.29 MiB/s, done.
+Total 52 (delta 9), reused 0 (delta 0)
+remote: Resolving deltas: 100% (9/9), completed with 6 local objects.
+remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.
+remote: warning: See http://git.io/iEPt8g for more information.
+remote: warning: File figures/part1_kmeans_bankrupt.png is 83.64 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB
+To github.com:matrharr/machine-learning-p3.git
+   c40ff6f..9dfdd43  master -> master
+(env) ➜  project-3 git:(master)

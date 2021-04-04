@@ -3,13 +3,17 @@ import matplotlib.pyplot as plt
 
 
 from sklearn.decomposition import FastICA
+from sklearn import preprocessing
+
 
 from data.load_data import load_bankrupt_data, load_brain_tumor_data
 
 x_train_brain, x_test_brain, y_train_brain, y_test_brain, raw_brain, y_brain = load_brain_tumor_data()
 x_train_bank, x_test_bank, y_train_bank, y_test_bank, raw_bank, y_bank = load_bankrupt_data()
 
-
+scaler = preprocessing.MinMaxScaler(feature_range=(0,1))
+raw_bank = scaler.fit_transform(raw_bank)
+raw_brain = scaler.fit_transform(raw_brain)
 # ica_brain = FastICA(
 #     n_components=None,
 #     algorithm='parallel',
@@ -37,7 +41,7 @@ with open('part2/ica-brain.npy', 'wb') as f:
     np.save(f, ica_brain_data)
 
 
-ica_bankrupt = FastICA(n_components=2).fit(raw_bank)
+ica_bankrupt = FastICA(n_components=4).fit(raw_bank)
 ica_bankrupt_data = ica_bankrupt.transform(raw_bank)
 
 fig, ax = plt.subplots()

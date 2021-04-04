@@ -28,6 +28,10 @@ with open('part2/rand-proj-brain.npy', 'rb') as f:
     file = np.load(f)
     features.append([file, 'rand-proj'])
 
+with open('part2/lda-brain.npy', 'rb') as f:
+    file = np.load(f)
+    features.append([file, 'lda'])
+
 
 
 for feature in features:
@@ -75,7 +79,7 @@ for feature in features:
     print('Testing Score: ', accuracy_score(y_test, y_test_pred))
 
     metrics = get_metrics(nn_model, x_train, y_train, x_test, y_test, y_test_pred, data, y)
-    print('loss: ', nn_model.loss)
+    print('loss: ', nn_model.loss_)
 
 
     fig, axes = plt.subplots(3, 2, figsize=(10, 15))

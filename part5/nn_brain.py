@@ -29,6 +29,10 @@ with open('part3/kmeans_brain_rand-proj.npy', 'rb') as f:
     file = np.load(f)
     features.append([file, 'kmeans_rp'])
 
+with open('part3/kmeans_brain_lda.npy', 'rb') as f:
+    file = np.load(f)
+    features.append([file, 'kmeans_lda'])
+
 with open('part3/gm_brain_pca.npy', 'rb') as f:
     file = np.load(f)
     features.append([file, 'gm_pca'])
@@ -40,6 +44,10 @@ with open('part3/gm_brain_ica.npy', 'rb') as f:
 with open('part3/gm_brain_rand-proj.npy', 'rb') as f:
     file = np.load(f)
     features.append([file, 'gm_rp'])
+
+with open('part3/gm_brain_lda.npy', 'rb') as f:
+    file = np.load(f)
+    features.append([file, 'gm_lda'])
 
 
 

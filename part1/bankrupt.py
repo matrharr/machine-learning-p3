@@ -18,8 +18,21 @@ scaler = preprocessing.MinMaxScaler(feature_range=(0,1))
 x_train = scaler.fit_transform(x_train)
 x_test = scaler.fit_transform(x_test)
 
+# elbow method
+# inertia = []
+# K = range(1,10)
+# for k in K:
+#     kmeanModel = KMeans(n_clusters=k).fit(x_train)
+#     kmeanModel.fit(x_train)
+#     inertia.append(kmeanModel.inertia_)
+
+# plt.plot(K, inertia, 'bx-')
+# plt.xlabel('k')
+# plt.ylabel('Inertia')
+# plt.show()
+
 kmeans = KMeans(
-    n_clusters=4,
+    n_clusters=5,
     init='k-means++',
     n_init=10,
     max_iter=300,
@@ -47,8 +60,9 @@ for col in og_data.columns:
 
 # slow
 # all pairs
-sns_pair = sns.pairplot(og_data,hue='labels')
-sns_pair.savefig('figures/part1_kmeans_bankrupt.png')
+# sns_pair = sns.pairplot(og_data,hue='labels')
+# sns_pair.savefig('figures/part1_kmeans_bankrupt-2.png')
+print('kmeans score:', kmeans.score(x_train))
 
 # very slow
 # strip plots
@@ -81,7 +95,7 @@ print('kmeans labels:',  kmeans.labels_)
 print('kmeans num of iterations:', kmeans.n_iter_)
 
 gm = mixture.GaussianMixture(
-    n_components=1,
+    n_components=3,
     covariance_type='full',
     tol=1e-3,
     reg_covar=1e-6,
@@ -98,3 +112,19 @@ gm = mixture.GaussianMixture(
 ).fit(
     x_train
 )
+
+f = pd.DataFrame(x_train)
+# Assign a label to each sample
+labels = gm.predict(x_train)
+f['labels']= labels
+d0 = f[f['labels']== 0]
+d1 = f[f['labels']== 1]
+d2 = f[f['labels']== 2]
+  
+# plot three clusters in same plot
+plt.scatter(d0[0], d0[1], c ='r')
+plt.scatter(d1[0], d1[1], c ='yellow')
+plt.scatter(d2[0], d2[1], c ='g')
+# plt.show()
+
+plt.savefig(f'figures/part1_gm_bank.png')

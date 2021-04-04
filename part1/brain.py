@@ -56,6 +56,8 @@ kmeans = KMeans(
     x_train, y=None, sample_weight=None
 )
 
+print('kmeans score:',  kmeans.score(x_train))
+
 labels = pd.DataFrame(kmeans.labels_) #This is where the label output of the KMeans we just ran lives. Make it a dataframe so we can concatenate back to the original data
 og_data = pd.concat((pd.DataFrame(raw), labels),axis=1)
 og_data = og_data.rename({0:'labels'},axis=1)
@@ -69,8 +71,8 @@ for col in og_data.columns:
 
 # slow
 # all pairs
-sns_pair = sns.pairplot(og_data,hue='labels')
-sns_pair.savefig('figures/part1_kmeans_brain.png')
+# sns_pair = sns.pairplot(og_data,hue='labels')
+# sns_pair.savefig('figures/part1_kmeans_brain.png')
 
 # very slow
 # strip plots
@@ -103,7 +105,7 @@ print('kmeans labels:',  kmeans.labels_)
 print('kmeans num of iterations:', kmeans.n_iter_)
 
 gm = mixture.GaussianMixture(
-    n_components=2,
+    n_components=3,
     covariance_type='full',
     tol=1e-3,
     reg_covar=1e-6,
@@ -121,3 +123,17 @@ gm = mixture.GaussianMixture(
     x_train
 )
 
+f = pd.DataFrame(x_train)
+# Assign a label to each sample
+labels = gm.predict(x_train)
+f['labels']= labels
+d0 = f[f['labels']== 0]
+d1 = f[f['labels']== 1]
+d2 = f[f['labels']== 2]
+  
+# plot three clusters in same plot
+plt.scatter(d0[0], d0[1], c ='r')
+plt.scatter(d1[0], d1[1], c ='yellow')
+plt.scatter(d2[0], d2[1], c ='g')
+# plt.show()
+plt.savefig(f'figures/part1_gm_brain.png')

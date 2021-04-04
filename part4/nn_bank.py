@@ -17,11 +17,11 @@ features = []
 
 print(x_train.head())
 
-with open('part2/pca-bank.npy', 'rb') as f:
+with open('part2/pca-bankrupt.npy', 'rb') as f:
     file = np.load(f)
     features.append([file, 'pca'])
 
-with open('part2/ica-bank.npy', 'rb') as f:
+with open('part2/ica-bankrupt.npy', 'rb') as f:
     file = np.load(f)
     features.append([file, 'ica'])
 
@@ -76,7 +76,7 @@ for feature in features:
     print('Testing Score: ', accuracy_score(y_test, y_test_pred))
 
     metrics = get_metrics(nn_model, x_train, y_train, x_test, y_test, y_test_pred, data, y)
-    print('loss: ', nn_model.loss)
+    print('loss: ', nn_model.loss_)
 
 
     fig, axes = plt.subplots(3, 2, figsize=(10, 15))
@@ -134,4 +134,4 @@ for feature in features:
                  label="Cross-validation score")
     axes[0].legend(loc="best")
     # plt.show()
-    fig.savefig(f'figures/part4_nn_brain_{dim_red_name}_learning_curve')
+    fig.savefig(f'figures/part4_nn_bank_{dim_red_name}_learning_curve')
